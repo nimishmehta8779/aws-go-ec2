@@ -2,6 +2,7 @@ package e2
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/nimishmehta8779/aws-go-obj/util"
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
@@ -30,6 +31,10 @@ func (in *Ec2Input) Validate() error {
 
 func NewEc2(ctx *pulumi.Context, name string, in *Ec2Input) (*Ec2Output, error) {
 	var err error
+
+	if ctx == nil {
+		log.Println("There is a problem while creating ec2 instance")
+	}
 	if err := in.Validate(); err != nil {
 		return nil, fmt.Errorf("while validating ec2 instance")
 
