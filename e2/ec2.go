@@ -1,4 +1,4 @@
-package ec2
+package e2
 
 import (
 	"fmt"

@@ -1,7 +1,7 @@
 package main
 
 import (
-	e2 "github.com/nimishmeht8779/aws-go-ec2"
+	"github.com/nimishmehta8779/aws-go-ec2/e2"
 
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -25,7 +25,7 @@ func main() {
 		}
 
 		// Create an AWS resource (S3 Bucket)
-		_, err := e2.NewEc2(ctx, "myinstance", &e2.Ec2Input{
+		_, err = e2.NewEc2(ctx, "myinstance", &e2.Ec2Input{
 			Size:     "t2.medium",
 			SubnetID: subnetid.Id,
 		})
