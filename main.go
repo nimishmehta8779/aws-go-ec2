@@ -6,6 +6,8 @@ import (
 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+		// Export the name of the bucket
+		//		ctx.Export("bucketName", ec2.ID())
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
@@ -24,7 +26,7 @@ func main() {
 			return err
 		}
 
-		// Create an AWS resource (S3 Bucket)
+		// Create an AWS resource (ec2 Bucket)
 		_, err = e2.NewEc2(ctx, "myinstance", &e2.Ec2Input{
 			Size:     "t2.medium",
 			SubnetID: subnetid.Id,
@@ -33,8 +35,6 @@ func main() {
 			return err
 		}
 
-		// Export the name of the bucket
-		//		ctx.Export("bucketName", ec2.ID())
 		return nil
 	})
 }
